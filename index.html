@@ -1,90 +1,438 @@
 
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>REMISIÓN</title>
-		<link rel="stylesheet" href="https://fredyortegon30.github.io/invoice/style.css">
-		<link rel="license" href="https://www.opensource.org/licenses/mit-license/">
-	</head>
-	<body>
-		<header>
-			<h1>REMISIÓN</h1>
-			<address>
-				<p>MI EMPRESA</p>
-				<p>NIT 1111111111<br>Calle 11- 10-33</p>
-				<p>Pereira</p>
-			</address>
+<head>
+    <meta charset="utf-8">
+    <title>INVOICE</title>
+    <style>
+        /* Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-<div style="float: right;">
-    <img alt="" src="https://acortar.link/caSNRS" style="width: 100px; height: 100px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="">
-</div>
+        /* Page */
+        html {
+            font: 12px/1.4 Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
 
+        body {
+            background: white;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
 
-		</header>
-		<article>
-			<h1>Recipient</h1>
-			<address>
-				<p>&lt;&lt;[id_cliente].[Nombre_cliente]&gt;&gt;<br>-</p>
-                <p class="small-text"><br>Email: &lt;&lt;[id_cliente].[Email]&gt;&gt;</p>
-                <p class="small-text">Cel:&lt;&lt;[id_cliente].[Celular]&gt;&gt;</p>
-			</address>
-			<table class="meta">
-				<tr>
-					<th><span>Remisión #</span></th>
-					<td><span>&lt;&lt;[N_factura]&gt;&gt;</span></td>
-				</tr>
-				<tr>
-					<th><span>Fecha</span></th>
-					<td><span>&lt;&lt;[Fecha]&gt;&gt;</span></td>
-				</tr>
-				<tr>
-					<th><span>Total</span></th>
-					<td><span>&lt;&lt;[TOTAL VENTA]&gt;&gt;</span></td>
-				</tr>
-			</table>
-			<table class="inventory">
-				<thead>
-					<tr>
-						<th><span>Producto</span></th>
-						<th><span>Descripcion</span></th>
-						<th><span>Valor ud</span></th>
-						<th><span>Cantidad</span></th>
-						<th><span>Subtotal</span></th>
-					</tr>
-				</thead>
-				<tbody>
-				<p><span>&lt;&lt;Start: SELECT(DETALLE_VENTAS[id_detalle],[id_encabezado_venta]=[id_encabezado]) &gt;&gt;</span></p>
-					<tr>
-						<td><a class="cut">-</a>&lt;&lt;[id_producto].[Nombre de producto]&gt;&gt;</td>
-						<td><span></span></td>
-				        <td><span>&lt;&lt;[Valor_unitario]&gt;&gt;</span></td>
-						<td><span>&lt;&lt;[Cantidad]&gt;&gt;</span></td>
-						<td><span>&lt;&lt;[Subtotal]&gt;&gt;</span></td>
-					</tr>
-				<p><span>&lt;&lt; end &gt;&gt;</span></p>
-				</tbody>
-			</table>
-			<a class="add">+</a>
-			<table class="balance">
-				<tr>
-					<th><span>Total</span></th>
-					<td><span>&lt;&lt;[TOTAL VENTA]&gt;&gt;</span></td>
-				</tr>
-				<tr>
-					<th><span>Otros conceptos</span></th>
-					<td><span data-prefix="$"></span><span>0.00</span></td>
-				</tr>
-				<tr>
-					<th><span>Total a pagar</span></th>
-					<td><span>&lt;&lt;[TOTAL VENTA]&gt;&gt;</span></td>
-				</tr>
-			</table>
-		</article>
-		<aside>
-			<h1><span>Notas adicionales</span></h1>
-			<div>
-				<p>Pagos a la cuenta de ahorros bancolombia # </p>
-			</div>
-		</aside>
-	</body>
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .company-info {
+            flex: 1;
+        }
+
+        .company-info h1 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .company-info p {
+            font-size: 11px;
+            line-height: 1.3;
+            margin-bottom: 2px;
+        }
+
+        .invoice-title {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .invoice-title h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #7B8DB8;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .invoice-meta {
+            background: white;
+        }
+
+        .invoice-meta table {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .invoice-meta td {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            font-size: 11px;
+            width: 120px;
+        }
+
+        .invoice-meta td:first-child {
+            background: #f8f8f8;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Cliente section */
+        .client-section {
+            margin: 30px 0;
+        }
+
+        .client-header {
+            background: #5B6B99;
+            color: white;
+            padding: 8px 12px;
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 0;
+            width: 55%;
+        }
+
+        .client-info {
+            padding: 12px;
+            background: white;
+            border: none;
+            font-size: 11px;
+            min-height: 80px;
+        }
+
+        /* Products table */
+        .products-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 30px 0;
+            table-layout: fixed;
+        }
+
+        .products-table th {
+            background: #5B6B99;
+            color: white;
+            padding: 10px 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 11px;
+            text-transform: uppercase;
+            border: 1px solid #4A5A89;
+        }
+
+        .products-table td {
+            padding: 12px 8px;
+            border: 1px solid #ccc;
+            font-size: 11px;
+            text-align: center;
+            vertical-align: middle;
+            min-height: 40px;
+        }
+
+        /* Anchos específicos de columnas */
+        .products-table th:nth-child(1),
+        .products-table td:nth-child(1) { 
+            width: 70%; 
+            text-align: left;
+        }
+        
+        .products-table th:nth-child(2),
+        .products-table td:nth-child(2) { 
+            width: 5%; 
+        }
+        
+        .products-table th:nth-child(3),
+        .products-table td:nth-child(3) { 
+            width: 10%; 
+        }
+        
+        .products-table th:nth-child(4),
+        .products-table td:nth-child(4) { 
+            width: 15%; 
+            text-align: right;
+        }
+
+        .products-table tbody {
+            background: white;
+        }
+
+        /* Totals section */
+        .totals-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 20px;
+            gap: 40px;
+        }
+
+        .comments-section {
+            flex: 1;
+        }
+
+        .comments-header {
+            background: #B8B8B8;
+            color: black;
+            padding: 8px 12px;
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 0;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+
+        .comments-content {
+            background: #f8f8f8;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+            font-size: 11px;
+            min-height: 80px;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+        }
+
+        .comments-content ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        .comments-content li {
+            margin-bottom: 5px;
+        }
+
+        .totals-table {
+            flex-shrink: 0;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .totals-table td {
+            padding: 8px 15px;
+            border: 1px solid #ccc;
+            font-size: 11px;
+            width: 120px;
+        }
+
+        .totals-table td:first-child {
+            background: #f8f8f8;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: right;
+        }
+
+        .totals-table td:last-child {
+            text-align: right;
+        }
+
+        .totals-table tr:last-child td {
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 11px;
+            color: #666;
+        }
+
+        /* Content editable */
+        [contenteditable] {
+            outline: none;
+            cursor: text;
+        }
+
+        [contenteditable]:hover,
+        [contenteditable]:focus {
+            background: #fff3cd;
+            border-radius: 2px;
+        }
+
+        /* Print styles */
+        @media print {
+            html {
+                background: white;
+                padding: 0;
+            }
+            body {
+                box-shadow: none;
+                margin: 0;
+                padding: 20px;
+            }
+            [contenteditable]:hover,
+            [contenteditable]:focus {
+                background: transparent;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="company-info">
+            <h1>FAST GARAGE DOOR CORP</h1>
+            <p>4431 SW 162nd CT</p>
+            <p>Miami, FL 33185</p>
+            <p>Phone 1: 786-291-2902</p>
+            <p>Phone 2: 786-9736099</p>
+        </div>
+        
+        <div class="invoice-title">
+            <h2>INVOICE</h2>
+            <table class="invoice-meta">
+                <tr>
+                    <td>DATE</td>
+                    <td contenteditable>&lt;&lt;[FECHA]&gt;&gt;</td>
+                </tr>
+                <tr>
+                    <td>INVOICE #</td>
+                    <td contenteditable>&lt;&lt;[NUMERO]&gt;&gt;</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="client-section">
+        <div class="client-header">BILL TO</div>
+        <div class="client-info">
+            <div contenteditable>&lt;&lt;[CLIENTE].[NOMBRE_CLIENTE]&gt;&gt;</div>
+            <div contenteditable>&lt;&lt;[CLIENTE].[DIRECCION]&gt;&gt;</div>
+            <div contenteditable>&lt;&lt;[CLIENTE].[CITY, ST ZIP]&gt;&gt;</div>
+        </div>
+    </div>
+
+    <table class="products-table">
+        <thead>
+            <tr>
+                <th>DESCRIPTION</th>
+                <th>QTY</th>
+                <th>RATE</th>
+                <th>AMOUNT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td contenteditable>&lt;&lt;Start: [Related DETALLES]&gt;&gt;&lt;&lt;[ARTICULO].[NOMBRE_ARTICULO]&gt;&gt;</td>
+                <td contenteditable>&lt;&lt;[CANTIDAD]&gt;&gt;</td>
+                <td contenteditable>&lt;&lt;[PRECIO]&gt;&gt;</td>
+                <td contenteditable>&lt;&lt;[TOTAL_LINEA]&gt;&gt;&lt;&lt;End&gt;&gt;</td>
+            </tr>
+            <!-- Filas adicionales para completar el espacio -->
+            <tr>
+                <td contenteditable></td>
+                <td contenteditable></td>
+                <td contenteditable></td>
+                <td contenteditable></td>
+            </tr>
+            <tr>
+                <td contenteditable></td>
+                <td contenteditable></td>
+                <td contenteditable></td>
+                <td contenteditable></td>
+            </tr>
+            <tr>
+                <td contenteditable></td>
+                <td contenteditable></td>
+                <td contenteditable></td>
+                <td contenteditable></td>
+            </tr>
+            <tr>
+                <td contenteditable></td>
+                <td contenteditable></td>
+                <td contenteditable></td>
+                <td contenteditable></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="totals-section">
+        <div class="comments-section">
+            <div class="comments-header">OTHER COMMENTS</div>
+            <div class="comments-content">
+                <ul>
+                    <li>Please include the invoice number on your check</li>
+                    <li contenteditable>&lt;&lt;[Ajuste_caracteres_comentarios]&gt;&gt;</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 20px;">
+            <table class="totals-table">
+                <tr>
+                    <td>SUBTOTAL</td>
+                    <td contenteditable>&lt;&lt;[SUBTOTAL]&gt;&gt;</td>
+                </tr>
+                <tr>
+                    <td>TOTAL</td>
+                    <td contenteditable>&lt;&lt;[TOTAL]&gt;&gt;</td>
+                </tr>
+            </table>
+            
+            <div style="text-align: center; font-size: 11px; margin-top: 10px;">
+                <p>Make all checks payable to</p>
+                <p><strong>FAST GARAGE DOOR CORP</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>If you have any questions about this invoice, please contact</p>
+        <p><strong>Fast Garage Door Corp</strong>, Phone (786) 291-2902, contactus@fastgaragedoors.com</p>
+    </div>
+
+    <script>
+        // Funcionalidad básica para cálculos automáticos
+        function updateTotals() {
+            const rows = document.querySelectorAll('.products-table tbody tr');
+            let subtotal = 0;
+            
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                if (cells.length >= 4) {
+                    const qty = parseFloat(cells[1].textContent.replace(/[^\d.-]/g, '')) || 0;
+                    const price = parseFloat(cells[2].textContent.replace(/[^\d.-]/g, '')) || 0;
+                    const total = qty * price;
+                    
+                    if (total > 0) {
+                        cells[3].textContent = total.toFixed(2);
+                        subtotal += total;
+                    }
+                }
+            });
+            
+            // Actualizar totales en la tabla de totales
+            const subtotalCell = document.querySelector('.totals-table tr:first-child td:last-child');
+            const totalCell = document.querySelector('.totals-table tr:last-child td:last-child');
+            
+            if (subtotalCell && totalCell) {
+                subtotalCell.textContent = subtotal.toFixed(2);
+                totalCell.textContent = subtotal.toFixed(2);
+            }
+        }
+
+        // Event listeners
+        document.addEventListener('input', function(e) {
+            if (e.target.closest('.products-table')) {
+                updateTotals();
+            }
+        });
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', updateTotals);
+    </script>
+</body>
 </html>

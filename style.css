@@ -1,199 +1,134 @@
-/* Reset */
+/* ============================
+   RESET GENERAL
+============================ */
 * {
-    box-sizing: border-box;
+    box-sizing: content-box;
+    color: inherit;
+    font: inherit;
+    line-height: inherit;
+    list-style: none;
     margin: 0;
     padding: 0;
+    text-decoration: none;
+    vertical-align: top;
 }
 
-/* Page */
-html {
-    font: 14px/1.4 'Open Sans', Arial, sans-serif;
-    background: #999;
-    padding: 20px;
-}
-body {
-    background: #FFF;
-    max-width: 8.5in;
-    margin: 0 auto;
-    padding: 40px;
-    box-shadow: 0 0 1in -0.25in rgba(0,0,0,.5);
+/* ============================
+   CAMPOS EDITABLES
+============================ */
+*[contenteditable] {
+    border-radius: 0.25em;
+    min-width: 1em;
+    outline: 0;
+    cursor: pointer;
 }
 
-/* Header */
-.header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 3em;
+*[contenteditable]:hover,
+*[contenteditable]:focus,
+td:hover *[contenteditable],
+td:focus *[contenteditable] {
+    background: #DEF;
+    box-shadow: 0 0 0.5em #DEF;
 }
-.company-info h1 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
+
+span[contenteditable] {
+    display: inline-block;
+}
+
+/* ============================
+   TITULO PRINCIPAL
+============================ */
+h1 {
+    font: bold 100% sans-serif;
+    letter-spacing: 0.5em;
+    text-align: center;
     text-transform: uppercase;
-}
-.company-info p {
-    font-size: 12px;
-    margin-bottom: 2px;
-}
-.invoice-title h2 {
-    background: #27649d;
-    color: #FFF;
-    padding: 0.5em 1em;
-    border-radius: .25em;
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
-.invoice-meta td {
-    border: 1px solid #DDD;
-    padding: 6px 10px;
-    font-size: 12px;
-}
-.invoice-meta td:first-child {
-    background: #EEE;
-    font-weight: bold;
+    margin: 0 0 1em 0;
 }
 
-/* Cliente */
-.client-header {
-    background: #27649d;
-    color: #FFF;
-    padding: 6px 10px;
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 0;
-    width: 55%;
-    border-radius: 4px 4px 0 0;
-}
-.client-info {
-    border: 1px solid #DDD;
-    border-top: none;
-    padding: 12px;
-    font-size: 12px;
-    min-height: 80px;
-    border-radius: 0 0 4px 4px;
-}
-
-/* Products */
-.products-table {
+/* ============================
+   TABLAS
+============================ */
+table {
+    font-size: 75%;
+    table-layout: fixed;
     width: 100%;
     border-collapse: collapse;
-    margin: 30px 0;
-    font-size: 12px;
+    margin-bottom: 2em;
 }
-.products-table th {
-    background: #27649d;
-    color: #FFF;
-    padding: 8px;
-    border: 1px solid #27649d;
-    text-align: center;
-}
-.products-table td {
-    border: 1px solid #DDD;
-    padding: 8px;
-    text-align: center;
-}
-.products-table th:nth-child(1),
-.products-table td:nth-child(1) { text-align: left; }
 
-/* Totals */
-.totals-section {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    gap: 40px;
+th, td {
+    border: 1px solid #000;
+    padding: 0.5em;
+    text-align: left;
+    vertical-align: middle;
 }
-.totals-table td {
-    border: 1px solid #DDD;
-    padding: 6px 12px;
-    font-size: 12px;
-}
-.totals-table td:first-child {
+
+th {
     background: #EEE;
     font-weight: bold;
+    text-align: center;
+}
+
+/* tabla de productos */
+.products-table td:nth-child(2),
+.products-table td:nth-child(3),
+.products-table td:nth-child(4) {
     text-align: right;
 }
+
+/* tabla de totales */
+.totals-table {
+    width: 40%;
+    float: right;
+    margin-top: 1em;
+}
+
+.totals-table td {
+    text-align: right;
+}
+
+.totals-table tr:first-child td {
+    font-weight: bold;
+}
+
 .totals-table tr:last-child td {
     font-weight: bold;
+    background: #f0f0f0;
 }
 
-/* Comments */
-.comments-header {
-    background: #EEE;
-    font-weight: bold;
-    padding: 6px 10px;
-    border: 1px solid #DDD;
-    border-bottom: none;
-}
-.comments-content {
-    border: 1px solid #DDD;
-    border-top: none;
-    padding: 10px;
-    font-size: 12px;
-    min-height: 80px;
+/* ============================
+   PAGINA
+============================ */
+html {
+    font: 16px/1 'Open Sans', sans-serif;
+    background: #999;
+    padding: 0.5in;
 }
 
-/* Footer */
-.footer {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 11px;
-    color: #666;
-    border-top: 1px solid #EEE;
-    padding-top: 15px;
+body {
+    margin: 0 auto;
+    padding: 0.5in;
+    background: #FFF;
+    box-shadow: 0 0 1in -0.25in rgba(0,0,0,0.5);
 }
 
-/* Editable */
-[contenteditable] {
-    outline: none;
-    cursor: text;
-}
-[contenteditable]:hover,
-[contenteditable]:focus {
-    background: #DEF;
-    border-radius: 2px;
-}
-
-/* Print */
+/* ============================
+   IMPRESION
+============================ */
 @media print {
-    html { background: none; padding: 0; }
-    body { box-shadow: none; margin: 0; }
-    [contenteditable]:hover,
-    [contenteditable]:focus { background: none; }
-}
-/* Bordes redondeados en tablas */
-.invoice-meta,
-.products-table,
-.totals-table {
-    border-radius: 0.5em; /* más redondo */
-    overflow: hidden; /* evita que sobresalgan esquinas */
-}
-
-.products-table th,
-.invoice-meta td:first-child,
-.totals-table td:first-child {
-    border-radius: 0; /* limpiamos por defecto */
-}
-
-.products-table thead tr:first-child th:first-child,
-.invoice-meta tr:first-child td:first-child,
-.totals-table tr:first-child td:first-child {
-    border-top-left-radius: 0.5em;
-}
-.products-table thead tr:first-child th:last-child,
-.invoice-meta tr:first-child td:last-child,
-.totals-table tr:first-child td:last-child {
-    border-top-right-radius: 0.5em;
-}
-
-.products-table tbody tr:last-child td:first-child,
-.invoice-meta tr:last-child td:first-child,
-.totals-table tr:last-child td:first-child {
-    border-bottom-left-radius: 0.5em;
-}
-.products-table tbody tr:last-child td:last-child,
-.invoice-meta tr:last-child td:last-child,
-.totals-table tr:last-child td:last-child {
-    border-bottom-right-radius: 0.5em;
+    * {
+        -webkit-print-color-adjust: exact;
+    }
+    html {
+        background: none;
+        padding: 0;
+    }
+    body {
+        box-shadow: none;
+        margin: 0;
+    }
+    span:empty {
+        display: none;
+    }
 }

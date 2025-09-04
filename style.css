@@ -36,7 +36,7 @@ body {
     margin-bottom: 2px;
 }
 .invoice-title h2 {
-    background: #27649d;
+    background: #5B6B99;
     color: #FFF;
     padding: 0.5em 1em;
     border-radius: .25em;
@@ -57,7 +57,7 @@ body {
 
 /* Cliente */
 .client-header {
-    background: #27649d;
+    background: #5B6B99;
     color: #FFF;
     padding: 6px 10px;
     font-size: 12px;
@@ -83,10 +83,10 @@ body {
     font-size: 12px;
 }
 .products-table th {
-    background: #27649d;
+    background: #5B6B99;
     color: #FFF;
     padding: 8px;
-    border: 1px solid #27649d;
+    border: 1px solid #5B6B99;
     text-align: center;
 }
 .products-table td {

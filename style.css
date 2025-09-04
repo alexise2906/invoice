@@ -22,7 +22,6 @@
     outline: 0;
     cursor: pointer;
 }
-
 *[contenteditable]:hover,
 *[contenteditable]:focus,
 td:hover *[contenteditable],
@@ -30,7 +29,6 @@ td:focus *[contenteditable] {
     background: #DEF;
     box-shadow: 0 0 0.5em #DEF;
 }
-
 span[contenteditable] {
     display: inline-block;
 }
@@ -47,29 +45,59 @@ h1 {
 }
 
 /* ============================
-   TABLAS
+   TABLAS GENERALES
 ============================ */
 table {
     font-size: 75%;
     table-layout: fixed;
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: collapse; /* comportamiento normal */
     margin-bottom: 2em;
 }
-
 th, td {
     border: 1px solid #000;
     padding: 0.5em;
     text-align: left;
     vertical-align: middle;
 }
-
 th {
     background: #EEE;
     font-weight: bold;
     text-align: center;
 }
 
+/* ============================
+   TABLAS ESPECIALES (FACTURA)
+============================ */
+.invoice-meta,
+.products-table,
+.totals-table {
+    border: 1px solid #DDD;   /* marco exterior */
+    border-radius: 0.5em;     /* esquinas redondeadas */
+    overflow: hidden;         /* evita que sobresalgan */
+    border-collapse: separate; 
+    border-spacing: 0;        /* elimina espacios */
+}
+
+/* Bordes internos solo como separadores horizontales */
+.invoice-meta td,
+.products-table td,
+.products-table th,
+.totals-table td {
+    border: none;
+    border-bottom: 1px solid #DDD;
+}
+
+/* Última fila sin borde inferior */
+.products-table tr:last-child td,
+.totals-table tr:last-child td,
+.invoice-meta tr:last-child td {
+    border-bottom: none;
+}
+
+/* ============================
+   TABLAS ESPECÍFICAS
+============================ */
 /* tabla de productos */
 .products-table td:nth-child(2),
 .products-table td:nth-child(3),
@@ -83,15 +111,12 @@ th {
     float: right;
     margin-top: 1em;
 }
-
 .totals-table td {
     text-align: right;
 }
-
 .totals-table tr:first-child td {
     font-weight: bold;
 }
-
 .totals-table tr:last-child td {
     font-weight: bold;
     background: #f0f0f0;
@@ -105,7 +130,6 @@ html {
     background: #999;
     padding: 0.5in;
 }
-
 body {
     margin: 0 auto;
     padding: 0.5in;
@@ -131,30 +155,4 @@ body {
     span:empty {
         display: none;
     }
-}
-/* Bordes redondeados en todas las tablas */
-.invoice-meta,
-.products-table,
-.totals-table {
-    border: 1px solid #DDD;   /* un solo borde exterior */
-    border-radius: 0.5em;     /* esquinas redondeadas */
-    overflow: hidden;         /* evita que sobresalgan */
-    border-collapse: separate;
-    border-spacing: 0;
-}
-
-/* Quitar los bordes de los lados exteriores en celdas */
-.invoice-meta td,
-.products-table td,
-.products-table th,
-.totals-table td {
-    border: none;
-    border-bottom: 1px solid #DDD; /* solo separador horizontal */
-}
-
-/* Última fila sin borde inferior */
-.products-table tr:last-child td,
-.totals-table tr:last-child td,
-.invoice-meta tr:last-child td {
-    border-bottom: none;
 }

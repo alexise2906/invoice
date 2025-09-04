@@ -132,38 +132,29 @@ body {
         display: none;
     }
 }
-/* Bordes redondeados en tablas */
+/* Bordes redondeados en todas las tablas */
 .invoice-meta,
 .products-table,
 .totals-table {
-    border-radius: 0.5em; /* más redondo */
-    overflow: hidden; /* evita que sobresalgan esquinas */
+    border: 1px solid #DDD;   /* un solo borde exterior */
+    border-radius: 0.5em;     /* esquinas redondeadas */
+    overflow: hidden;         /* evita que sobresalgan */
+    border-collapse: separate;
+    border-spacing: 0;
 }
 
+/* Quitar los bordes de los lados exteriores en celdas */
+.invoice-meta td,
+.products-table td,
 .products-table th,
-.invoice-meta td:first-child,
-.totals-table td:first-child {
-    border-radius: 0; /* limpiamos por defecto */
+.totals-table td {
+    border: none;
+    border-bottom: 1px solid #DDD; /* solo separador horizontal */
 }
 
-.products-table thead tr:first-child th:first-child,
-.invoice-meta tr:first-child td:first-child,
-.totals-table tr:first-child td:first-child {
-    border-top-left-radius: 0.5em;
-}
-.products-table thead tr:first-child th:last-child,
-.invoice-meta tr:first-child td:last-child,
-.totals-table tr:first-child td:last-child {
-    border-top-right-radius: 0.5em;
-}
-
-.products-table tbody tr:last-child td:first-child,
-.invoice-meta tr:last-child td:first-child,
-.totals-table tr:last-child td:first-child {
-    border-bottom-left-radius: 0.5em;
-}
-.products-table tbody tr:last-child td:last-child,
-.invoice-meta tr:last-child td:last-child,
-.totals-table tr:last-child td:last-child {
-    border-bottom-right-radius: 0.5em;
+/* Última fila sin borde inferior */
+.products-table tr:last-child td,
+.totals-table tr:last-child td,
+.invoice-meta tr:last-child td {
+    border-bottom: none;
 }

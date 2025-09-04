@@ -1,274 +1,164 @@
-/* reset */
+/* Reset */
 * {
-    box-sizing: content-box;
-    color: inherit;
-    font: inherit;
-    line-height: inherit;
-    list-style: none;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    text-decoration: none;
-    vertical-align: top;
 }
 
-/* content editable */
-*[contenteditable] {
-    border-radius: 0.25em;
-    min-width: 1em;
-    outline: 0;
-    cursor: pointer;
-}
-
-*[contenteditable]:hover,
-*[contenteditable]:focus,
-td:hover *[contenteditable],
-td:focus *[contenteditable],
-img.hover {
-    background: #DEF;
-    box-shadow: 0 0 1em 0.5em #DEF;
-}
-
-span[contenteditable] {
-    display: inline-block;
-}
-
-/* heading */
-h1 {
-    font: bold 100% sans-serif;
-    letter-spacing: 0.5em;
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 1em; /* Añadido para espacio después del título */
-}
-
-/* table */
-table {
-    font-size: 75%;
-    table-layout: fixed;
-    width: 100%;
-    border-collapse: collapse; /* Añadido para evitar problemas de bordes en algunas situaciones */
-}
-
-th, td {
-    border: 1px solid #000; /* Añadido un borde sólido para todas las celdas */
-    padding: 0.5em;
-    position: relative;
-    text-align: left;
-}
-
-th {
-    background: #EEE;
-}
-
-/* page */
+/* Page */
 html {
-    font: 16px/1 'Open Sans', sans-serif;
-    overflow: auto;
-    padding: 0.5in;
+    font: 14px/1.4 'Open Sans', Arial, sans-serif;
     background: #999;
-    cursor: default;
+    padding: 20px;
 }
-
 body {
-    box-sizing: border-box;
-    margin: 0 auto;
-    padding: 0.5in;
     background: #FFF;
-    box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 40px;
+    box-shadow: 0 0 1in -0.25in rgba(0,0,0,.5);
 }
 
-/* header */
-header {
-    margin: 0 0 3em;
-    overflow: hidden; /* Añadido para manejar el colapso del margen superior */
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3em;
 }
-
-header h1 {
+.company-info h1 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.company-info p {
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+.invoice-title h2 {
     background: #27649d;
-    border-radius: 0.25em;
     color: #FFF;
-    margin: 0;
-    padding: 0.5em 0;
+    padding: 0.5em 1em;
+    border-radius: .25em;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+.invoice-meta td {
+    border: 1px solid #DDD;
+    padding: 6px 10px;
+    font-size: 12px;
+}
+.invoice-meta td:first-child {
+    background: #EEE;
+    font-weight: bold;
 }
 
-header address {
-    float: left;
-    font-size: 75%;
-    font-style: normal;
-    line-height: 1.25;
-    margin: 0 1em 1em 0;
+/* Cliente */
+.client-header {
+    background: #27649d;
+    color: #FFF;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+    width: 55%;
+    border-radius: 4px 4px 0 0;
+}
+.client-info {
+    border: 1px solid #DDD;
+    border-top: none;
+    padding: 12px;
+    font-size: 12px;
+    min-height: 80px;
+    border-radius: 0 0 4px 4px;
 }
 
-header span,
-header img {
-    display: block;
-    float: right;
-    margin: 0 0 1em 1em;
-    max-height: 25%;
-    max-width: 60%;
-    position: relative;
-}
-
-header img {
-    max-height: 100%;
-    max-width: 100%;
-}
-
-header input {
-    cursor: pointer;
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    height: 100%;
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    top: 0;
+/* Products */
+.products-table {
     width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    font-size: 12px;
 }
-
-/* article */
-article,
-article address,
-table.meta,
-table.inventory {
-    margin: 0 0 3em;
-    clear: both;
-}
-
-article:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-article h1 {
-    clip: rect(0 0 0 0);
-    position: absolute;
-}
-
-article address {
-    float: left;
-    font-size: 125%;
-    font-weight: bold;
-}
-
-/* table meta & balance */
-table.meta,
-table.balance {
-    float: right;
-    width: 36%;
-}
-
-table.meta:after,
-table.balance:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* table meta */
-table.meta th {
-    width: 40%;
-}
-
-table.meta td {
-    width: 60%;
-}
-
-/* table items */
-table.inventory th {
-    font-weight: bold;
+.products-table th {
+    background: #27649d;
+    color: #FFF;
+    padding: 8px;
+    border: 1px solid #27649d;
     text-align: center;
 }
+.products-table td {
+    border: 1px solid #DDD;
+    padding: 8px;
+    text-align: center;
+}
+.products-table th:nth-child(1),
+.products-table td:nth-child(1) { text-align: left; }
 
-table.inventory td {
+/* Totals */
+.totals-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 40px;
+}
+.totals-table td {
+    border: 1px solid #DDD;
+    padding: 6px 12px;
+    font-size: 12px;
+}
+.totals-table td:first-child {
+    background: #EEE;
+    font-weight: bold;
     text-align: right;
 }
-
-table { font-size: 75%; table-layout: fixed; width: 100%; }
-table { border-collapse: separate; border-spacing: 2px; }
-th, td { border-width: 1px; padding: 0.5em; position: relative; text-align: left; }
-th, td { border-radius: 0.25em; border-style: solid; }
-th { background: #EEE; border-color: #BBB; }
-td { border-color: #DDD; }
-
-/* aside */
-aside h1 {
-    border: none;
-    border-width: 0 0 1px;
-    margin: 0 0 1em;
-    border-color: #999;
-    border-bottom-style: solid;
-}
-
-/* javascript */
-.add,
-.cut {
-    display: block;
-    float: left;
-    width: 0.6em;
-    font-size: .8rem;
-    padding: 0.25em 0.5em;
-    background: #9AF;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    background-image: -moz-linear-gradient(#00ADEE 5%, #0078A5 100%);
-    background-image: -webkit-linear-gradient(#00ADEE 5%, #0078A5 100%);
-    border-radius: 0.5em;
-    border-color: #0076A3;
-    color: #FFF;
-    cursor: pointer;
+.totals-table tr:last-child td {
     font-weight: bold;
-    text-shadow: 0 -1px 2px rgba(0,0,0,0.333);
-    margin: -2.5em 0 0;
 }
 
-.add:hover {
-    background: #00ADEE;
+/* Comments */
+.comments-header {
+    background: #EEE;
+    font-weight: bold;
+    padding: 6px 10px;
+    border: 1px solid #DDD;
+    border-bottom: none;
+}
+.comments-content {
+    border: 1px solid #DDD;
+    border-top: none;
+    padding: 10px;
+    font-size: 12px;
+    min-height: 80px;
 }
 
-.cut {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: -1.5em;
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 11px;
+    color: #666;
+    border-top: 1px solid #EEE;
+    padding-top: 15px;
 }
 
-tr:hover .cut {
-    opacity: 1;
+/* Editable */
+[contenteditable] {
+    outline: none;
+    cursor: text;
+}
+[contenteditable]:hover,
+[contenteditable]:focus {
+    background: #DEF;
+    border-radius: 2px;
 }
 
+/* Print */
 @media print {
-    * {
-        -webkit-print-color-adjust: exact;
-    }
-    html {
-        background: none;
-        padding: 0;
-    }
-    body {
-        box-shadow: none;
-        margin: 0;
-    }
-    span:empty {
-        display: none;
-    }
-    .add,
-    .cut {
-        display: none;
-    }
-}
-
-@page {
-    margin: 0;
-}
-
-/* Agrega un estilo personalizado para la línea debajo de la dirección y el número */
-.custom-line {
-    border: none;
-    border-bottom: 1px solid #000;
-    margin: 5px 0;
-}
-
-/* Estilo para el texto más pequeño */
-.small-text {
-    font-size: 60%;
+    html { background: none; padding: 0; }
+    body { box-shadow: none; margin: 0; }
+    [contenteditable]:hover,
+    [contenteditable]:focus { background: none; }
 }

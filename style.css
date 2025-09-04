@@ -162,3 +162,39 @@ body {
     [contenteditable]:hover,
     [contenteditable]:focus { background: none; }
 }
+/* Bordes redondeados en tablas */
+.invoice-meta,
+.products-table,
+.totals-table {
+    border-radius: 0.5em; /* más redondo */
+    overflow: hidden; /* evita que sobresalgan esquinas */
+}
+
+.products-table th,
+.invoice-meta td:first-child,
+.totals-table td:first-child {
+    border-radius: 0; /* limpiamos por defecto */
+}
+
+.products-table thead tr:first-child th:first-child,
+.invoice-meta tr:first-child td:first-child,
+.totals-table tr:first-child td:first-child {
+    border-top-left-radius: 0.5em;
+}
+.products-table thead tr:first-child th:last-child,
+.invoice-meta tr:first-child td:last-child,
+.totals-table tr:first-child td:last-child {
+    border-top-right-radius: 0.5em;
+}
+
+.products-table tbody tr:last-child td:first-child,
+.invoice-meta tr:last-child td:first-child,
+.totals-table tr:last-child td:first-child {
+    border-bottom-left-radius: 0.5em;
+}
+.products-table tbody tr:last-child td:last-child,
+.invoice-meta tr:last-child td:last-child,
+.totals-table tr:last-child td:last-child {
+    border-bottom-right-radius: 0.5em;
+}
+

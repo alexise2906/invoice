@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>REMISIÓN</title>
+    <title>INVOICE</title>
     <style>
         /* Reset */
         * {
@@ -116,6 +116,7 @@
             border-collapse: separate;
             border-spacing: 0;
             margin: 30px 0;
+            table-layout: fixed;
         }
 
         .products-table th {
@@ -141,7 +142,7 @@
         /* Anchos específicos de columnas */
         .products-table th:nth-child(1),
         .products-table td:nth-child(1) { 
-            width: 60%; 
+            width: 70%; 
             text-align: left;
         }
         
@@ -152,12 +153,12 @@
         
         .products-table th:nth-child(3),
         .products-table td:nth-child(3) { 
-            width: 15%; 
+            width: 10%; 
         }
         
         .products-table th:nth-child(4),
         .products-table td:nth-child(4) { 
-            width: 20%; 
+            width: 15%; 
             text-align: right;
         }
 
@@ -186,6 +187,8 @@
             font-size: 12px;
             text-transform: uppercase;
             margin-bottom: 0;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
         }
 
         .comments-content {
@@ -195,6 +198,8 @@
             border-top: none;
             font-size: 11px;
             min-height: 80px;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
         }
 
         .comments-content ul {
@@ -278,22 +283,22 @@
 <body>
     <div class="header">
         <div class="company-info">
-            <h1>MI EMPRESA</h1>
+            <h1>FAST GARAGE DOOR CORP</h1>
             <p>4431 SW 162nd CT</p>
-            <p>Pereira, Colombia</p>
-            <p>Phone 1: +57-6-XXX-XXXX</p>
-            <p>Phone 2: +57-6-XXX-XXXX</p>
+            <p>Miami, FL 33185</p>
+            <p>Phone 1: 786-291-2902</p>
+            <p>Phone 2: 786-9736099</p>
         </div>
         
         <div class="invoice-title">
-            <h2>REMISIÓN</h2>
+            <h2>INVOICE</h2>
             <table class="invoice-meta">
                 <tr>
                     <td>DATE</td>
                     <td contenteditable>&lt;&lt;[FECHA]&gt;&gt;</td>
                 </tr>
                 <tr>
-                    <td>REMISIÓN #</td>
+                    <td>INVOICE #</td>
                     <td contenteditable>&lt;&lt;[NUMERO]&gt;&gt;</td>
                 </tr>
             </table>
@@ -301,7 +306,7 @@
     </div>
 
     <div class="client-section">
-        <div class="client-header">ENTREGAR A</div>
+        <div class="client-header">BILL TO</div>
         <div class="client-info">
             <div contenteditable>&lt;&lt;[CLIENTE].[NOMBRE_CLIENTE]&gt;&gt;</div>
             <div contenteditable>&lt;&lt;[CLIENTE].[DIRECCION]&gt;&gt;</div>
@@ -312,10 +317,10 @@
     <table class="products-table">
         <thead>
             <tr>
-                <th>DESCRIPCIÓN</th>
-                <th>CANT</th>
-                <th>PRECIO</th>
-                <th>TOTAL</th>
+                <th>DESCRIPTION</th>
+                <th>QTY</th>
+                <th>RATE</th>
+                <th>AMOUNT</th>
             </tr>
         </thead>
         <tbody>
@@ -355,30 +360,37 @@
 
     <div class="totals-section">
         <div class="comments-section">
-            <div class="comments-header">COMENTARIOS ADICIONALES</div>
+            <div class="comments-header">OTHER COMMENTS</div>
             <div class="comments-content">
                 <ul>
-                    <li>Por favor incluya el número de remisión en su pago</li>
+                    <li>Please include the invoice number on your check</li>
                     <li contenteditable>&lt;&lt;[Ajuste_caracteres_comentarios]&gt;&gt;</li>
                 </ul>
             </div>
         </div>
 
-        <table class="totals-table">
-            <tr>
-                <td>SUBTOTAL</td>
-                <td contenteditable>&lt;&lt;[SUBTOTAL]&gt;&gt;</td>
-            </tr>
-            <tr>
-                <td>TOTAL</td>
-                <td contenteditable>&lt;&lt;[TOTAL]&gt;&gt;</td>
-            </tr>
-        </table>
+        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 20px;">
+            <table class="totals-table">
+                <tr>
+                    <td>SUBTOTAL</td>
+                    <td contenteditable>&lt;&lt;[SUBTOTAL]&gt;&gt;</td>
+                </tr>
+                <tr>
+                    <td>TOTAL</td>
+                    <td contenteditable>&lt;&lt;[TOTAL]&gt;&gt;</td>
+                </tr>
+            </table>
+            
+            <div style="text-align: center; font-size: 11px; margin-top: 10px;">
+                <p>Make all checks payable to</p>
+                <p><strong>FAST GARAGE DOOR CORP</strong></p>
+            </div>
+        </div>
     </div>
 
     <div class="footer">
-        <p>Si tiene alguna pregunta sobre esta remisión, por favor contacte</p>
-        <p><strong>Mi Empresa</strong>, Phone (XXX) XXX-XXXX, contactus@miempresa.com</p>
+        <p>If you have any questions about this invoice, please contact</p>
+        <p><strong>Fast Garage Door Corp</strong>, Phone (786) 291-2902, contactus@fastgaragedoors.com</p>
     </div>
 
     <script>

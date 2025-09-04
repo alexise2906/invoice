@@ -3,283 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>INVOICE</title>
-    <style>
-        /* Reset */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Page */
-        html {
-            font: 12px/1.4 Arial, sans-serif;
-            background: #f5f5f5;
-            padding: 20px;
-        }
-
-        body {
-            background: white;
-            max-width: 8.5in;
-            margin: 0 auto;
-            padding: 40px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        /* Header */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 40px;
-        }
-
-        .company-info {
-            flex: 1;
-        }
-
-        .company-info h1 {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .company-info p {
-            font-size: 11px;
-            line-height: 1.3;
-            margin-bottom: 2px;
-        }
-
-        .invoice-title {
-            text-align: right;
-            flex-shrink: 0;
-        }
-
-        .invoice-title h2 {
-            font-size: 24px;
-            font-weight: bold;
-            color: #7B8DB8;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-
-        .invoice-meta {
-            background: white;
-        }
-
-        .invoice-meta table {
-            border-collapse: separate;
-            border-spacing: 0;
-        }
-
-        .invoice-meta td {
-            padding: 8px 12px;
-            border: 1px solid #ccc;
-            font-size: 11px;
-            width: 120px;
-        }
-
-        .invoice-meta td:first-child {
-            background: #f8f8f8;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        /* Cliente section */
-        .client-section {
-            margin: 30px 0;
-        }
-
-        .client-header {
-            background: #5B6B99;
-            color: white;
-            padding: 8px 12px;
-            font-weight: bold;
-            font-size: 12px;
-            text-transform: uppercase;
-            margin-bottom: 0;
-            width: 55%;
-        }
-
-        .client-info {
-            padding: 12px;
-            background: white;
-            border: none;
-            font-size: 11px;
-            min-height: 80px;
-        }
-
-        /* Products table */
-        .products-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: 30px 0;
-            table-layout: fixed;
-        }
-
-        .products-table th {
-            background: #5B6B99;
-            color: white;
-            padding: 10px 8px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 11px;
-            text-transform: uppercase;
-            border: 1px solid #4A5A89;
-        }
-
-        .products-table td {
-            padding: 12px 8px;
-            border: 1px solid #ccc;
-            font-size: 11px;
-            text-align: center;
-            vertical-align: middle;
-            min-height: 40px;
-        }
-
-        /* Anchos específicos de columnas */
-        .products-table th:nth-child(1),
-        .products-table td:nth-child(1) { 
-            width: 70%; 
-            text-align: left;
-        }
-        
-        .products-table th:nth-child(2),
-        .products-table td:nth-child(2) { 
-            width: 5%; 
-        }
-        
-        .products-table th:nth-child(3),
-        .products-table td:nth-child(3) { 
-            width: 10%; 
-        }
-        
-        .products-table th:nth-child(4),
-        .products-table td:nth-child(4) { 
-            width: 15%; 
-            text-align: right;
-        }
-
-        .products-table tbody {
-            background: white;
-        }
-
-        /* Totals section */
-        .totals-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-top: 20px;
-            gap: 40px;
-        }
-
-        .comments-section {
-            flex: 1;
-        }
-
-        .comments-header {
-            background: #B8B8B8;
-            color: black;
-            padding: 8px 12px;
-            font-weight: bold;
-            font-size: 12px;
-            text-transform: uppercase;
-            margin-bottom: 0;
-            border-top-left-radius: 6px;
-            border-top-right-radius: 6px;
-        }
-
-        .comments-content {
-            background: #f8f8f8;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-top: none;
-            font-size: 11px;
-            min-height: 80px;
-            border-bottom-left-radius: 6px;
-            border-bottom-right-radius: 6px;
-        }
-
-        .comments-content ul {
-            list-style: disc;
-            padding-left: 20px;
-        }
-
-        .comments-content li {
-            margin-bottom: 5px;
-        }
-
-        .totals-table {
-            flex-shrink: 0;
-            border-collapse: separate;
-            border-spacing: 0;
-        }
-
-        .totals-table td {
-            padding: 8px 15px;
-            border: 1px solid #ccc;
-            font-size: 11px;
-            width: 120px;
-        }
-
-        .totals-table td:first-child {
-            background: #f8f8f8;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-align: right;
-        }
-
-        .totals-table td:last-child {
-            text-align: right;
-        }
-
-        .totals-table tr:last-child td {
-            font-weight: bold;
-            font-size: 12px;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            font-size: 11px;
-            color: #666;
-        }
-
-        /* Content editable */
-        [contenteditable] {
-            outline: none;
-            cursor: text;
-        }
-
-        [contenteditable]:hover,
-        [contenteditable]:focus {
-            background: #fff3cd;
-            border-radius: 2px;
-        }
-
-        /* Print styles */
-        @media print {
-            html {
-                background: white;
-                padding: 0;
-            }
-            body {
-                box-shadow: none;
-                margin: 0;
-                padding: 20px;
-            }
-            [contenteditable]:hover,
-            [contenteditable]:focus {
-                background: transparent;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="header">
@@ -331,31 +55,11 @@
                 <td contenteditable>&lt;&lt;[PRECIO]&gt;&gt;</td>
                 <td contenteditable>&lt;&lt;[TOTAL_LINEA]&gt;&gt;&lt;&lt;End&gt;&gt;</td>
             </tr>
-            <!-- Filas adicionales para completar el espacio -->
-            <tr>
-                <td contenteditable></td>
-                <td contenteditable></td>
-                <td contenteditable></td>
-                <td contenteditable></td>
-            </tr>
-            <tr>
-                <td contenteditable></td>
-                <td contenteditable></td>
-                <td contenteditable></td>
-                <td contenteditable></td>
-            </tr>
-            <tr>
-                <td contenteditable></td>
-                <td contenteditable></td>
-                <td contenteditable></td>
-                <td contenteditable></td>
-            </tr>
-            <tr>
-                <td contenteditable></td>
-                <td contenteditable></td>
-                <td contenteditable></td>
-                <td contenteditable></td>
-            </tr>
+            <!-- Filas vacías -->
+            <tr><td contenteditable></td><td contenteditable></td><td contenteditable></td><td contenteditable></td></tr>
+            <tr><td contenteditable></td><td contenteditable></td><td contenteditable></td><td contenteditable></td></tr>
+            <tr><td contenteditable></td><td contenteditable></td><td contenteditable></td><td contenteditable></td></tr>
+            <tr><td contenteditable></td><td contenteditable></td><td contenteditable></td><td contenteditable></td></tr>
         </tbody>
     </table>
 
@@ -370,7 +74,7 @@
             </div>
         </div>
 
-        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 20px;">
+        <div class="totals-block">
             <table class="totals-table">
                 <tr>
                     <td>SUBTOTAL</td>
@@ -382,7 +86,7 @@
                 </tr>
             </table>
             
-            <div style="text-align: center; font-size: 11px; margin-top: 10px;">
+            <div class="pay-to">
                 <p>Make all checks payable to</p>
                 <p><strong>FAST GARAGE DOOR CORP</strong></p>
             </div>
@@ -408,31 +112,28 @@
                     const total = qty * price;
                     
                     if (total > 0) {
-                        cells[3].textContent = total.toFixed(2);
+                        cells[3].textContent = "$" + total.toFixed(2);
                         subtotal += total;
                     }
                 }
             });
             
-            // Actualizar totales en la tabla de totales
+            // Actualizar totales
             const subtotalCell = document.querySelector('.totals-table tr:first-child td:last-child');
             const totalCell = document.querySelector('.totals-table tr:last-child td:last-child');
             
             if (subtotalCell && totalCell) {
-                subtotalCell.textContent = subtotal.toFixed(2);
-                totalCell.textContent = subtotal.toFixed(2);
+                subtotalCell.textContent = "$" + subtotal.toFixed(2);
+                totalCell.textContent = "$" + subtotal.toFixed(2);
             }
         }
 
-        // Event listeners
-        document.addEventListener('input', function(e) {
-            if (e.target.closest('.products-table')) {
-                updateTotals();
-            }
+        document.addEventListener('input', e => {
+            if (e.target.closest('.products-table')) updateTotals();
         });
 
-        // Inicializar
         document.addEventListener('DOMContentLoaded', updateTotals);
     </script>
 </body>
 </html>
+

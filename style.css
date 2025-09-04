@@ -36,7 +36,7 @@ body {
     margin-bottom: 2px;
 }
 .invoice-title h2 {
-    background: #5B6B99;
+    background: #27649d;
     color: #FFF;
     padding: 0.5em 1em;
     border-radius: .25em;
@@ -57,7 +57,7 @@ body {
 
 /* Cliente */
 .client-header {
-    background: #5B6B99;
+    background: #27649d;
     color: #FFF;
     padding: 6px 10px;
     font-size: 12px;
@@ -83,10 +83,10 @@ body {
     font-size: 12px;
 }
 .products-table th {
-    background: #5B6B99;
+    background: #27649d;
     color: #FFF;
     padding: 8px;
-    border: 1px solid #5B6B99;
+    border: 1px solid #27649d;
     text-align: center;
 }
 .products-table td {
@@ -162,39 +162,3 @@ body {
     [contenteditable]:hover,
     [contenteditable]:focus { background: none; }
 }
-/* Bordes redondeados en tablas */
-.invoice-meta,
-.products-table,
-.totals-table {
-    border-radius: 0.5em; /* más redondo */
-    overflow: hidden; /* evita que sobresalgan esquinas */
-}
-
-.products-table th,
-.invoice-meta td:first-child,
-.totals-table td:first-child {
-    border-radius: 0; /* limpiamos por defecto */
-}
-
-.products-table thead tr:first-child th:first-child,
-.invoice-meta tr:first-child td:first-child,
-.totals-table tr:first-child td:first-child {
-    border-top-left-radius: 0.5em;
-}
-.products-table thead tr:first-child th:last-child,
-.invoice-meta tr:first-child td:last-child,
-.totals-table tr:first-child td:last-child {
-    border-top-right-radius: 0.5em;
-}
-
-.products-table tbody tr:last-child td:first-child,
-.invoice-meta tr:last-child td:first-child,
-.totals-table tr:last-child td:first-child {
-    border-bottom-left-radius: 0.5em;
-}
-.products-table tbody tr:last-child td:last-child,
-.invoice-meta tr:last-child td:last-child,
-.totals-table tr:last-child td:last-child {
-    border-bottom-right-radius: 0.5em;
-}
-

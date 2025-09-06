@@ -20,12 +20,12 @@
             <h2>INVOICE</h2>
             <table class="invoice-meta">
                 <tr>
-                    <th><span>DATE</span></th>
-                    <td><span>&lt;&lt;[FECHA]&gt;&gt;</span></td>
+                    <td>DATE</td>
+                    <td contenteditable>&lt;&lt;[FECHA]&gt;&gt;</td>
                 </tr>
                 <tr>
-                   <th><span>INVOICE #</span></th>
-                    <td><span>&lt;&lt;[NUMERO]&gt;&gt;</span></td>
+                    <td>INVOICE #</td>
+                    <td contenteditable>&lt;&lt;[NUMERO]&gt;&gt;</td>
                 </tr>
             </table>
         </div>
@@ -34,28 +34,28 @@
     <div class="client-section">
         <div class="client-header">BILL TO</div>
         <div class="client-info">
-            <th><span>&lt;&lt;[CLIENTE].[NOMBRE_CLIENTE]&gt;&gt;</span></th>
-            <th><span>&lt;&lt;[CLIENTE].[DIRECCION]&gt;&gt;</span></th>
-           <th><span>&lt;&lt;[CLIENTE].[CITY, ST ZIP]&gt;&gt;</span></th>
+            <div contenteditable>&lt;&lt;[CLIENTE].[NOMBRE_CLIENTE]&gt;&gt;</div>
+            <div contenteditable>&lt;&lt;[CLIENTE].[DIRECCION]&gt;&gt;</div>
+            <div contenteditable>&lt;&lt;[CLIENTE].[CITY, ST ZIP]&gt;&gt;</div>
         </div>
     </div>
 
     <table class="products-table">
         <thead>
             <tr>
-                <th><span>DESCRIPTION</span></th>
-              <th><span>QTY</span></th>
-                <th><span>RATE</span></th>
-               <th><span>AMOUNT</span></th>
+                <th>DESCRIPTION</th>
+                <th>QTY</th>
+                <th>RATE</th>
+                <th>AMOUNT</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td contenteditable>&lt;&lt;Start: [Related DETALLES]&gt;&gt;&lt;&lt;[ARTICULO].[NOMBRE_ARTICULO]&gt;&gt;
                 </td>
-                <td <th><span>&lt;&lt;[CANTIDAD]&gt;&gt;</span></th>
-                <td <th><span>&lt;&lt;[PRECIO]&gt;&gt;</span></th>
-                <td <th><span>&lt;&lt;[TOTAL_LINEA]&gt;&gt;</span></th>
+                <td contenteditable>&lt;&lt;[CANTIDAD]&gt;&gt;</td>
+                <td contenteditable>&lt;&lt;[PRECIO]&gt;&gt;</td>
+                <td contenteditable>&lt;&lt;[TOTAL_LINEA]&gt;&gt;</td>
             </tr>
             &lt;&lt;End&gt;&gt;
         </tbody>
@@ -63,11 +63,11 @@
 
     <div class="totals-section">
         <div class="comments-section">
-            <div class="comments-header">OTHER COMMENTS</span></th>
+            <div class="comments-header">OTHER COMMENTS</div>
             <div class="comments-content">
                 <ul>
                     <li>Please include the invoice number on your check</li>
-                    <li <th><span>&lt;&lt;[Ajuste_caracteres_comentarios]&gt;&gt;</span></th>
+                    <li contenteditable>&lt;&lt;[Ajuste_caracteres_comentarios]&gt;&gt;</li>
                 </ul>
             </div>
         </div>
@@ -75,12 +75,12 @@
         <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 20px;">
             <table class="totals-table">
                 <tr>
-                   <th><span>SUBTOTAL</span></th>
-                    <th><span>&lt;&lt;[SUBTOTAL]&gt;&gt;</td>
+                    <td>SUBTOTAL</td>
+                    <td contenteditable>&lt;&lt;[SUBTOTAL]&gt;&gt;</td>
                 </tr>
                 <tr>
-                   <th><span>TOTAL</span></th>
-                  <th><span>&lt;&lt;[TOTAL]&gt;&gt;</td>
+                    <td>TOTAL</td>
+                    <td contenteditable>&lt;&lt;[TOTAL]&gt;&gt;</td>
                 </tr>
             </table>
 

@@ -41,21 +41,26 @@
         </div>
     </div>
 
-    <table class="products-table">
-        <thead>
-            <tr>
-                <th>DESCRIPTION</th>
-                <th>QTY</th>
-                <th>RATE</th>
-                <th>AMOUNT</th>
-                </tr> </thead> <tbody> <tr> <td contenteditable>&lt;&lt;Start: [Related DETALLES]&gt;&gt;&lt;&lt;[ARTICULO].[NOMBRE_ARTICULO]&gt;&gt;</span></td>
-               <td><span>&lt;&lt;[CANTIDAD]&gt;&gt;</span></td>
-              <td><span>&lt;&lt;[PRECIO]&gt;&gt;</span></td>
-                <td><span>&lt;&lt;[TOTAL_LINEA]&gt;&gt;</span></td>
-            </tr>
-            &lt;&lt;End&gt;&gt;
-        </tbody>
-    </table>
+   <table class="products-table">
+  <thead>
+    <tr>
+      <th>DESCRIPTION</th>
+      <th>QTY</th>
+      <th>RATE</th>
+      <th>AMOUNT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <<Start: [Related DETALLES]>>
+    <tr>
+      <td><span>&lt;&lt;[ARTICULO].[NOMBRE_ARTICULO]&gt;&gt;</span></td>
+      <td><span>&lt;&lt;[CANTIDAD]&gt;&gt;</span></td>
+      <td><span>&lt;&lt;[PRECIO]&gt;&gt;</span></td>
+      <td><span>&lt;&lt;[TOTAL_LINEA]&gt;&gt;</span></td>
+    </tr>
+    <<End>>
+  </tbody>
+</table>
 
     <div class="totals-section">
         <div class="comments-section">

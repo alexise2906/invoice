@@ -73,11 +73,12 @@
             border-spacing: 0;
         }
 
-        .invoice-meta td {
-            padding: 8px 12px;
-            border: 1px solid #ccc;
-            font-size: 11px;
-            width: 12px;
+      invoice-meta td {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    font-size: 11px;
+    width: 110px;       /* aquí pruebas con 100px, 110px o 120px */
+    white-space: nowrap; /* evita que "INVOICE #" se divida */
         }
 
         .invoice-meta td:first-child {

@@ -312,3 +312,14 @@ body {
 .small-text {
     font-size: 60%;
 }
+
+/* Evita expansión horizontal, permite expansión vertical en celdas de tabla */
+.products-table th, .products-table td,
+.invoice-meta th, .invoice-meta td,
+.totals-table th, .totals-table td,
+.comments-content {
+    word-break: break-word;
+    white-space: pre-line;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}

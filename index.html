@@ -22,11 +22,11 @@
             <table class="invoice-meta">
                 <tr>
                     <td>DATE</td>
-                   <td><span>&lt;&lt;[FECHA]&gt;&gt;</span></td>
+                    <td contenteditable>&lt;&lt;[FECHA]&gt;&gt;</div>
                 </tr>
                 <tr>
                     <td>INVOICE #</td>
-                  <td><span>&lt;&lt;[NUMERO]&gt;&gt;</span></td>
+                    <td contenteditable>&lt;&lt;[NUMERO]&gt;&gt;</td>
                 </tr>
             </table>
         </div>
@@ -35,32 +35,27 @@
     <div class="client-section">
         <div class="client-header">BILL TO</div>
         <div class="client-info">
-            <td><span>&lt;&lt;[CLIENTE].[NOMBRE_CLIENTE]&gt;&gt;</span></td>
-            <td><span>&lt;&lt;[CLIENTE].[DIRECCION]&gt;&gt;</span></td>
-            <td><span>&lt;&lt;[CLIENTE].[CITY, ST ZIP]&gt;&gt;</span></td>
+            <div contenteditable>&lt;&lt;[CLIENTE].[NOMBRE_CLIENTE]&gt;&gt;</div>
+            <div contenteditable>&lt;&lt;[CLIENTE].[DIRECCION]&gt;&gt;</div>
+            <div contenteditable>&lt;&lt;[CLIENTE].[CITY, ST ZIP]&gt;&gt;</div>
         </div>
     </div>
 
-   <table class="products-table">
-  <thead>
-    <tr>
-      <th>DESCRIPTION</th>
-      <th>QTY</th>
-      <th>RATE</th>
-      <th>AMOUNT</th>
-    </tr>
-  </thead>
-  <tbody>
-    <<Start: [Related DETALLES]>>
-    <tr>
-      <td><span>&lt;&lt;[ARTICULO].[NOMBRE_ARTICULO]&gt;&gt;</span></td>
-      <td><span>&lt;&lt;[CANTIDAD]&gt;&gt;</span></td>
-      <td><span>&lt;&lt;[PRECIO]&gt;&gt;</span></td>
-      <td><span>&lt;&lt;[TOTAL_LINEA]&gt;&gt;</span></td>
-    </tr>
-    <<End>>
-  </tbody>
-</table>
+    <table class="products-table">
+        <thead>
+            <tr>
+                <th>DESCRIPTION</th>
+                <th>QTY</th>
+                <th>RATE</th>
+                <th>AMOUNT</th>
+                </tr> </thead> <tbody> <tr> <td contenteditable>&lt;&lt;Start: [Related DETALLES]&gt;&gt;&lt;&lt;[ARTICULO].[NOMBRE_ARTICULO]&gt;&gt;</td>
+                <td contenteditable>&lt;&lt;[CANTIDAD]&gt;&gt;</td>
+                <td contenteditable>&lt;&lt;[PRECIO]&gt;&gt;</td>
+                <td contenteditable>&lt;&lt;[TOTAL_LINEA]&gt;&gt;</td>
+            </tr>
+            &lt;&lt;End&gt;&gt;
+        </tbody>
+    </table>
 
     <div class="totals-section">
         <div class="comments-section">
@@ -68,7 +63,7 @@
             <div class="comments-content">
                 <ul>
                     <li>Please include the invoice number on your check</li>
-                    <li <span>&lt;&lt;[Ajuste_caracteres_comentarios]&gt;&gt;</span></td>
+                    <li contenteditable>&lt;&lt;[Ajuste_caracteres_comentarios]&gt;&gt;</li>
                 </ul>
             </div>
         </div>
@@ -77,11 +72,11 @@
             <table class="totals-table">
                 <tr>
                     <td>SUBTOTAL</td>
-                   <td><span>&lt;&lt;[SUBTOTAL]&gt;&gt;</span></td>
+                    <td contenteditable>&lt;&lt;[SUBTOTAL]&gt;&gt;</td>
                 </tr>
                 <tr>
                     <td>TOTAL</td>
-                <td><span>&lt;&lt;[TOTAL]&gt;&gt;</span></td>
+                    <td contenteditable>&lt;&lt;[TOTAL]&gt;&gt;</td>
                 </tr>
             </table>
             

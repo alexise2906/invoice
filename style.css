@@ -298,7 +298,7 @@ body {
 /* Carta */
 @page {
     size: letter;
-    margin: 1in;
+    margin: 0.6in;
 }
 
 /* Utilidades */

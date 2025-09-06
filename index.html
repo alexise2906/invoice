@@ -21,11 +21,11 @@
             <table class="invoice-meta">
                 <tr>
                     <td>DATE</td>
-                    <td contenteditable>&lt;&lt;[FECHA]&gt;&gt;</td>
+                    <td><span>&lt;&lt;[FECHA]&gt;&gt;</span></td>
                 </tr>
                 <tr>
                     <td>INVOICE #</td>
-                    <td contenteditable>&lt;&lt;[NUMERO]&gt;&gt;</td>
+                    <td><span>&lt;&lt;[NUMERO]&gt;&gt;</span></td>
                 </tr>
             </table>
         </div>
@@ -34,9 +34,9 @@
     <div class="client-section">
         <div class="client-header">BILL TO</div>
         <div class="client-info">
-            <div contenteditable>&lt;&lt;[CLIENTE].[NOMBRE_CLIENTE]&gt;&gt;</div>
-            <div contenteditable>&lt;&lt;[CLIENTE].[DIRECCION]&gt;&gt;</div>
-            <div contenteditable>&lt;&lt;[CLIENTE].[CITY, ST ZIP]&gt;&gt;</div>
+           <div></div> <span>&lt;&lt;[CLIENTE].[NOMBRE_CLIENTE]&gt;&gt;</span>
+            <div></div> <span>&lt;&lt;[CLIENTE].[DIRECCION]&gt;&gt;</span>
+           <div></div> <span>&lt;&lt;[CLIENTE].[CITY, ST ZIP]&gt;&gt;</span>
         </div>
     </div>
 
@@ -50,15 +50,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td contenteditable>&lt;&lt;Start: [Related DETALLES]&gt;&gt;&lt;&lt;[ARTICULO].[NOMBRE_ARTICULO]&gt;&gt;
-                </td>
-                <td contenteditable>&lt;&lt;[CANTIDAD]&gt;&gt;</td>
-                <td contenteditable>&lt;&lt;[PRECIO]&gt;&gt;</td>
-                <td contenteditable>&lt;&lt;[TOTAL_LINEA]&gt;&gt;</td>
-            </tr>
-            &lt;&lt;End&gt;&gt;
-        </tbody>
+    <tr>
+        <td><span>&lt;&lt;Start: [Related DETALLES]&gt;&gt;&lt;&lt;[ARTICULO].[NOMBRE_ARTICULO]&gt;&gt;</span></td>
+        <td><span>&lt;&lt;[CANTIDAD]&gt;&gt;</span></td>
+        <td><span>&lt;&lt;[PRECIO]&gt;&gt;</span></td>
+        <td><span>&lt;&lt;[TOTAL_LINEA]&gt;&gt;</span></td>
+    </tr>
+    <!-- Aquí se agregarán más filas automáticamente por cada detalle -->
+    <tr>
+        <td colspan="4"><span>&lt;&lt; end &gt;&gt;</span></td>
+    </tr>
+</tbody>
     </table>
 
     <div class="totals-section">
@@ -67,7 +69,7 @@
             <div class="comments-content">
                 <ul>
                     <li>Please include the invoice number on your check</li>
-                    <li contenteditable>&lt;&lt;[Ajuste_caracteres_comentarios]&gt;&gt;</li>
+                    <li><span>&lt;&lt;[Ajuste_caracteres_comentarios]&gt;&gt;</span></li>
                 </ul>
             </div>
         </div>
@@ -76,11 +78,11 @@
             <table class="totals-table">
                 <tr>
                     <td>SUBTOTAL</td>
-                    <td contenteditable>&lt;&lt;[SUBTOTAL]&gt;&gt;</td>
+                    <td><span>&lt;&lt;[SUBTOTAL]&gt;&gt;</span></td>
                 </tr>
                 <tr>
                     <td>TOTAL</td>
-                    <td contenteditable>&lt;&lt;[TOTAL]&gt;&gt;</td>
+                    <td><span>&lt;&lt;[TOTAL]&gt;&gt;</span></td>
                 </tr>
             </table>
 
@@ -100,6 +102,6 @@
         </p>
     </div>
 
-    <script src="invoice.js"></script>
+   <script src="invoice.js"></script>
 </body>
 </html>

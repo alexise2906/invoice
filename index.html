@@ -1,99 +1,97 @@
+
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>INVOICE</title>
-  <!-- Vinculamos los estilos externos -->
+    <meta charset="utf-8">
+    <title>INVOICE</title>
+    <!-- Vinculamos los estilos externos -->
   <link rel="stylesheet" href="https://alexise2906.github.io/invoice/style.css">
   <link rel="license" href="https://www.opensource.org/licenses/mit-license/">
 </head>
 <body>
-  <div class="header">
-    <div class="company-info">
-      <h1>FAST GARAGE DOOR CORP</h1>
-      <p>4431 SW 162nd CT</p>
-      <p>Miami, FL 33185</p>
-      <p>Phone 1: 786-291-2902</p>
-      <p>Phone 2: 786-9736099</p>
-    </div>
-    <div class="invoice-title">
-      <h2>INVOICE</h2>
-      <table class="invoice-meta">
-        <tr>
-          <td>DATE</td>
-          <td><span>&lt;&lt;[FECHA]&gt;&gt;</span></td>
-        </tr>
-        <tr>
-          <td>INVOICE #</td>
-          <td><span>&lt;&lt;[NUMERO]&gt;&gt;</span></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="client-section">
-    <div class="client-header">BILL TO</div>
-    <div class="client-info">
-      <div><span>&lt;&lt;[CLIENTE].[NOMBRE_CLIENTE]&gt;&gt;</span></div>
-      <div><span>&lt;&lt;[CLIENTE].[DIRECCION]&gt;&gt;</span></div>
-      <div><span>&lt;&lt;[CLIENTE].[CITY, ST ZIP]&gt;&gt;</span></div>
-    </div>
-  </div>
-
-  <table class="products-table">
-    <thead>
-      <tr>
-        <th>DESCRIPTION</th>
-        <th>QTY</th>
-        <th>RATE</th>
-        <th>AMOUNT</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span>&lt;&lt;Start: [Related DETALLES]&gt;&gt;&lt;&lt;[ARTICULO].[NOMBRE_ARTICULO]&gt;&gt;</span></td>
-        <td><span>&lt;&lt;[CANTIDAD]&gt;&gt;</span></td>
-        <td><span>&lt;&lt;[PRECIO]&gt;&gt;</span></td>
-        <td><span>&lt;&lt;[TOTAL_LINEA]&gt;&gt;</span></td>
-      </tr>
-      &lt;&lt;End&gt;&gt;
-    </tbody>
-  </table>
-
-  <div class="totals-section">
-    <div class="comments-section">
-      <div class="comments-header">OTHER COMMENTS</div>
-      <div class="comments-content">
-        <ul>
-          <li>Please include the invoice number on your check</li>
-          <li><span>&lt;&lt;[Ajuste_caracteres_comentarios]&gt;&gt;</span></li>
-        </ul>
-      </div>
+    <div class="header">
+        <div class="company-info">
+            <h1>FAST GARAGE DOOR CORP</h1>
+            <p>4431 SW 162nd CT</p>
+            <p>Miami, FL 33185</p>
+            <p>Phone 1: 786-291-2902</p>
+            <p>Phone 2: 786-9736099</p>
+        </div>
+        
+        <div class="invoice-title">
+            <h2>INVOICE</h2>
+            <table class="invoice-meta">
+                <tr>
+                    <td>DATE</td>
+                   <td><span>&lt;&lt;[FECHA]&gt;&gt;</span></td>
+                </tr>
+                <tr>
+                    <td>INVOICE #</td>
+                  <td><span>&lt;&lt;[NUMERO]&gt;&gt;</span></td>
+                </tr>
+            </table>
+        </div>
     </div>
 
-    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 20px;">
-      <table class="totals-table">
-        <tr>
-          <td>SUBTOTAL</td>
-          <td><span>&lt;&lt;[SUBTOTAL]&gt;&gt;</span></td>
-        </tr>
-        <tr>
-          <td>TOTAL</td>
-          <td><span>&lt;&lt;[TOTAL]&gt;&gt;</span></td>
-        </tr>
-      </table>
-
-      <div style="text-align: center; font-size: 11px; margin-top: 10px;">
-        <p>Make all checks payable to</p>
-        <p><strong>FAST GARAGE DOOR CORP</strong></p>
-      </div>
+    <div class="client-section">
+        <div class="client-header">BILL TO</div>
+        <div class="client-info">
+            <td><span>&lt;&lt;[CLIENTE].[NOMBRE_CLIENTE]&gt;&gt;</span></td>
+            <td><span>&lt;&lt;[CLIENTE].[DIRECCION]&gt;&gt;</span></td>
+            <td><span>&lt;&lt;[CLIENTE].[CITY, ST ZIP]&gt;&gt;</span></td>
+        </div>
     </div>
-  </div>
 
-  <div class="footer">
-    <p>If you have any questions about this invoice, please contact</p>
-    <p><strong>Fast Garage Door Corp</strong>, Phone (786) 291-2902, contactus@fastgaragedoors.com</p>
-  </div>
+    <table class="products-table">
+        <thead>
+            <tr>
+                <th>DESCRIPTION</th>
+                <th>QTY</th>
+                <th>RATE</th>
+                <th>AMOUNT</th>
+                </tr> </thead> <tbody> <tr> <td contenteditable>&lt;&lt;Start: [Related DETALLES]&gt;&gt;&lt;&lt;[ARTICULO].[NOMBRE_ARTICULO]&gt;&gt;</span></td>
+               <td><span>&lt;&lt;[CANTIDAD]&gt;&gt;</span></td>
+              <td><span>&lt;&lt;[PRECIO]&gt;&gt;</span></td>
+                <td><span>&lt;&lt;[TOTAL_LINEA]&gt;&gt;</span></td>
+            </tr>
+            &lt;&lt;End&gt;&gt;
+        </tbody>
+    </table>
 
-  <script src="invoice.js"></script>
+    <div class="totals-section">
+        <div class="comments-section">
+            <div class="comments-header">OTHER COMMENTS</div>
+            <div class="comments-content">
+                <ul>
+                    <li>Please include the invoice number on your check</li>
+                    <li <span>&lt;&lt;[Ajuste_caracteres_comentarios]&gt;&gt;</span></td>
+                </ul>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 20px;">
+            <table class="totals-table">
+                <tr>
+                    <td>SUBTOTAL</td>
+                   <td><span>&lt;&lt;[SUBTOTAL]&gt;&gt;</span></td>
+                </tr>
+                <tr>
+                    <td>TOTAL</td>
+                <td><span>&lt;&lt;[TOTAL]&gt;&gt;</span></td>
+                </tr>
+            </table>
+            
+            <div style="text-align: center; font-size: 11px; margin-top: 10px;">
+                <p>Make all checks payable to</p>
+                <p><strong>FAST GARAGE DOOR CORP</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>If you have any questions about this invoice, please contact</p>
+        <p><strong>Fast Garage Door Corp</strong>, Phone (786) 291-2902, contactus@fastgaragedoors.com</p>
+    </div>
+
+    <script src="invoice.js"></script>
 </body>
 </html>

@@ -257,7 +257,7 @@ body {
     body {
         box-shadow: none;
         margin: 0;
-        padding: 20px;
+        padding: 0px;
     }
     [contenteditable]:hover,
     [contenteditable]:focus {

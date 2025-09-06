@@ -1,11 +1,10 @@
-
 <html>
 <head>
     <meta charset="utf-8">
     <title>INVOICE</title>
     <!-- Vinculamos los estilos externos -->
-  <link rel="stylesheet" href="https://alexise2906.github.io/invoice/style.css">
-  <link rel="license" href="https://www.opensource.org/licenses/mit-license/">
+    <link rel="stylesheet" href="https://alexise2906.github.io/invoice/style.css">
+    <link rel="license" href="https://www.opensource.org/licenses/mit-license/">
 </head>
 <body>
     <div class="header">
@@ -16,13 +15,13 @@
             <p>Phone 1: 786-291-2902</p>
             <p>Phone 2: 786-9736099</p>
         </div>
-        
+
         <div class="invoice-title">
             <h2>INVOICE</h2>
             <table class="invoice-meta">
                 <tr>
                     <td>DATE</td>
-                    <td contenteditable>&lt;&lt;[FECHA]&gt;&gt;</div>
+                    <td contenteditable>&lt;&lt;[FECHA]&gt;&gt;</td>
                 </tr>
                 <tr>
                     <td>INVOICE #</td>
@@ -48,7 +47,12 @@
                 <th>QTY</th>
                 <th>RATE</th>
                 <th>AMOUNT</th>
-                </tr> </thead> <tbody> <tr> <td contenteditable>&lt;&lt;Start: [Related DETALLES]&gt;&gt;&lt;&lt;[ARTICULO].[NOMBRE_ARTICULO]&gt;&gt;</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td contenteditable>&lt;&lt;Start: [Related DETALLES]&gt;&gt;&lt;&lt;[ARTICULO].[NOMBRE_ARTICULO]&gt;&gt;
+                </td>
                 <td contenteditable>&lt;&lt;[CANTIDAD]&gt;&gt;</td>
                 <td contenteditable>&lt;&lt;[PRECIO]&gt;&gt;</td>
                 <td contenteditable>&lt;&lt;[TOTAL_LINEA]&gt;&gt;</td>
@@ -79,7 +83,7 @@
                     <td contenteditable>&lt;&lt;[TOTAL]&gt;&gt;</td>
                 </tr>
             </table>
-            
+
             <div style="text-align: center; font-size: 11px; margin-top: 10px;">
                 <p>Make all checks payable to</p>
                 <p><strong>FAST GARAGE DOOR CORP</strong></p>
@@ -89,7 +93,11 @@
 
     <div class="footer">
         <p>If you have any questions about this invoice, please contact</p>
-        <p><strong>Fast Garage Door Corp</strong>, Phone (786) 291-2902, contactus@fastgaragedoors.com</p>
+        <p>
+            <strong>Fast Garage Door Corp</strong>, 
+            Phone (786) 291-2902, 
+            contactus@fastgaragedoors.com
+        </p>
     </div>
 
     <script src="invoice.js"></script>

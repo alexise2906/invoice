@@ -144,7 +144,8 @@ body {
 }
 
 .products-table th {
-    background: #3c56a4;
+    background: #5B6B99;
+    color: white;
     font-weight: bold;
     text-align: center;
 }

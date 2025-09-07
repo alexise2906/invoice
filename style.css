@@ -362,21 +362,22 @@ body {
     body {
         box-shadow: none;
         margin: 0;
-        padding: 0.8in 0.8in 1.2in 0.8in; /* Márgenes ajustados para footer fijo */
-        padding-bottom: 120px;            /* Espacio reservado para footer */
+        padding: 0.5in 0.5in 0.8in 0.5in; /* Márgenes reducidos para impresión */
+        padding-bottom: 80px;            /* Espacio reservado para footer */
         position: relative;
     }
     
     /* Footer fijo en impresión */
     .footer {
         position: fixed;                  /* Posición fija al imprimir */
-        bottom: 0.5in;                    /* Distancia del borde inferior */
-        left: 0.8in;                      /* Margen izquierdo */
-        right: 0.8in;                     /* Margen derecho */
-        width: calc(100% - 1.6in);       /* Ancho calculado */
+        bottom: 0.3in;                    /* Distancia del borde inferior */
+        left: 0.5in;                      /* Margen izquierdo */
+        right: 0.5in;                     /* Margen derecho */
+        width: calc(100% - 1in);          /* Ancho calculado */
         page-break-inside: avoid;         /* Evitar partir el footer */
         background: white;
         z-index: 1000;
+        font-size: 9px;                   /* Fuente más pequeña para impresión */
     }
     
     /* Ocultar elementos span vacíos */

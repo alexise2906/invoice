@@ -1,345 +1,452 @@
-/* Reset */
+/* ===================================
+   RESET Y CONFIGURACIÓN BASE
+   =================================== */
+
+/* Reset global para eliminar estilos por defecto del navegador */
 * {
-    box-sizing: content-box;
-    color: inherit;
-    font: inherit;
-    line-height: inherit;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    vertical-align: top;
+    box-sizing: content-box;      /* Modelo de caja tradicional */
+    color: inherit;               /* Heredar color del elemento padre */
+    font: inherit;               /* Heredar fuente del elemento padre */
+    line-height: inherit;        /* Heredar altura de línea del elemento padre */
+    list-style: none;           /* Eliminar viñetas de listas */
+    margin: 0;                  /* Eliminar márgenes por defecto */
+    padding: 0;                 /* Eliminar padding por defecto */
+    text-decoration: none;      /* Eliminar subrayado de enlaces */
+    vertical-align: top;        /* Alineación vertical superior */
 }
 
-/* Page */
+/* ===================================
+   CONFIGURACIÓN DE PÁGINA
+   =================================== */
+
+/* Configuración general del documento HTML */
 html {
-    font: 12px/1.4 Arial, sans-serif;
-    overflow: auto;
-    padding: 20px;
-    background: #f5f5f5;
-    cursor: default;
+    font: 12px/1.4 Arial, sans-serif;  /* Fuente: 12px, altura línea 1.4, Arial */
+    overflow: auto;                      /* Permitir scroll si es necesario */
+    padding: 20px;                      /* Espaciado alrededor del documento */
+    background: #f5f5f5;                /* Color de fondo gris claro */
+    cursor: default;                    /* Cursor por defecto */
 }
 
+/* Contenedor principal del documento (simula una hoja de papel) */
 body {
-    box-sizing: border-box;
-    margin: 0 auto;
-    padding: 0.7in;
-    background: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    max-width: 8.5in;
-    min-height: 9in;
+    box-sizing: border-box;             /* Incluir padding y border en el ancho total */
+    margin: 0 auto;                     /* Centrar horizontalmente */
+    padding: 0.7in;                     /* Margen interno de 0.7 pulgadas */
+    background: white;                  /* Fondo blanco para simular papel */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra sutil para efecto de papel */
+    max-width: 8.5in;                   /* Ancho máximo de carta americana */
+    min-height: 9in;                    /* Altura mínima */
 }
 
-/* Header */
+/* ===================================
+   ENCABEZADO DE LA FACTURA
+   =================================== */
+
+/* Contenedor principal del encabezado */
 .header {
-    margin-bottom: 40px;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding-bottom: 30px;
-
+    margin-bottom: 40px;                /* Espacio debajo del encabezado */
+    overflow: hidden;                   /* Limpiar floats */
+    display: flex;                      /* Layout flexible */
+    justify-content: space-between;     /* Distribuir espacio entre elementos */
+    align-items: flex-start;           /* Alinear al inicio verticalmente */
+    padding-bottom: 30px;              /* Espaciado inferior */
 }
 
+/* Información de la empresa (lado izquierdo) */
 .company-info h1 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    padding-top: 40px;
-
+    font-size: 18px;                   /* Tamaño de fuente del nombre de empresa */
+    font-weight: bold;                 /* Texto en negrita */
+    margin-bottom: 10px;               /* Espacio debajo del título */
+    text-transform: uppercase;         /* Convertir a mayúsculas */
+    padding-top: 40px;                 /* Espaciado superior */
 }
 
+/* Párrafos con información de contacto de la empresa */
 .company-info p {
-    font-size: 11px;
-    line-height: 1.3;
-    margin-bottom: 2px;
+    font-size: 11px;                   /* Tamaño de fuente pequeño */
+    line-height: 1.3;                  /* Altura de línea compacta */
+    margin-bottom: 2px;                /* Espacio mínimo entre líneas */
 }
 
+/* Título "INVOICE" (lado derecho) */
 .invoice-title h2 {
-    font-size: 28px;
-    font-weight: bold;
-    color: #7B8DB8;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-   
+    font-size: 28px;                   /* Tamaño grande para destacar */
+    font-weight: bold;                 /* Texto en negrita */
+    color: #7B8DB8;                    /* Color azul corporativo */
+    text-transform: uppercase;         /* Convertir a mayúsculas */
+    letter-spacing: 2px;               /* Espaciado entre letras */
+    margin-bottom: 15px;               /* Espacio debajo del título */
 }
 
+/* Tabla de metadatos (fecha y número de factura) */
 .invoice-meta {
-    margin-top: 1em;
-    width: 100%;
-    font-size: 90%;
+    margin-top: 1em;                   /* Espacio superior */
+    width: 100%;                       /* Ancho completo */
+    font-size: 90%;                    /* Tamaño de fuente reducido */
 }
 
+/* Celdas de la tabla de metadatos */
 .invoice-meta td {
-    padding: 0.5em 1em;
-    border: 1px solid #000;
-    background: #fff;
-    border-radius: 0.25em 0.25em 0 0;
+    padding: 0.5em 1em;                /* Espaciado interno */
+    border: 1px solid #000;            /* Borde negro */
+    background: #fff;                  /* Fondo blanco */
+    border-radius: 0.25em 0.25em 0 0;  /* Bordes redondeados superiores */
 }
 
+/* Primera celda de cada fila (etiquetas como "DATE", "INVOICE #") */
 .invoice-meta td:first-child {
-    background: #EEE;
-    font-weight: bold;
-    text-transform: uppercase;
+    background: #EEE;                  /* Fondo gris claro */
+    font-weight: bold;                 /* Texto en negrita */
+    text-transform: uppercase;         /* Convertir a mayúsculas */
 }
 
-/* Cliente section */
+/* ===================================
+   SECCIÓN DE CLIENTE
+   =================================== */
+
+/* Contenedor de la sección del cliente */
 .client-section {
-    margin: 2em 0;
+    margin: 2em 0;                     /* Margen superior e inferior */
 }
+
+/* Encabezado "BILL TO" */
 .client-header {
-    background: #5B6B99;
-    color: white;
-    padding: 0.5em 1em;
-    font-weight: bold;
-    font-size: 12px;
-    text-transform: uppercase;
-    border-radius: 0.25em 0.25em 0 0;
-    margin-bottom: 0;
-    width: 55%;
-
+    background: #5B6B99;               /* Fondo azul corporativo */
+    color: white;                      /* Texto blanco */
+    padding: 0.5em 1em;                /* Espaciado interno */
+    font-weight: bold;                 /* Texto en negrita */
+    font-size: 12px;                   /* Tamaño de fuente */
+    text-transform: uppercase;         /* Convertir a mayúsculas */
+    border-radius: 0.25em 0.25em 0 0;  /* Bordes redondeados superiores */
+    margin-bottom: 0;                  /* Sin margen inferior */
+    width: 55%;                        /* Ancho del 55% */
 }
 
+/* Contenido de información del cliente */
 .client-info {
-    padding: 1em;
-    background: white;
-    font-size: 95%;
-    min-height: 80px;
-    border: none;
-    border-radius: 0 0 0.25em 0.25em;
+    padding: 1em;                      /* Espaciado interno */
+    background: white;                 /* Fondo blanco */
+    font-size: 95%;                    /* Tamaño de fuente ligeramente reducido */
+    min-height: 80px;                  /* Altura mínima */
+    border: none;                      /* Sin borde */
+    border-radius: 0 0 0.25em 0.25em;  /* Bordes redondeados inferiores */
 }
 
+/* Divisiones dentro de la información del cliente */
 .client-info div {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.5em;              /* Espacio entre líneas */
 }
 
-/* Products table */
+/* ===================================
+   TABLA DE PRODUCTOS/SERVICIOS
+   =================================== */
+
+/* Tabla principal de productos */
 .products-table {
-    font-size: 90%;
-    table-layout: fixed;
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 2px;
-    margin: 2em 0;
-    background: #fff;
-    word-break: break-word;
-    white-space: normal;
+    font-size: 90%;                    /* Tamaño de fuente reducido */
+    table-layout: fixed;               /* Ancho de columnas fijo */
+    width: 100%;                       /* Ancho completo */
+    border-collapse: separate;         /* Bordes separados */
+    border-spacing: 2px;               /* Espacio entre celdas */
+    margin: 2em 0;                     /* Margen superior e inferior */
+    background: #fff;                  /* Fondo blanco */
+    word-break: break-word;            /* Partir palabras largas */
+    white-space: normal;               /* Permitir salto de línea */
 }
 
+/* Configuración de ruptura de palabras para todas las tablas */
 .products-table th, .products-table td,
 .invoice-meta th, .invoice-meta td,
 .totals-table th, .totals-table td {
-    word-break: break-word;
-    white-space: normal;
+    word-break: break-word;            /* Partir palabras largas */
+    white-space: normal;               /* Permitir salto de línea */
 }
 
+/* Celdas de encabezado y contenido de la tabla de productos */
 .products-table th, .products-table td {
-    border: 1px solid #000;
-    padding: 0.5em;
-    position: relative;
-    text-align: left;
-    border-radius: 0.25em;
+    border: 1px solid #000;            /* Borde negro */
+    padding: 0.5em;                    /* Espaciado interno */
+    position: relative;                /* Posicionamiento relativo */
+    text-align: left;                  /* Alineación a la izquierda */
+    border-radius: 0.25em;             /* Bordes redondeados */
 }
 
+/* Encabezados de la tabla de productos */
 .products-table th {
-    background: #5B6B99;
-    color: white;
-    font-weight: bold;
-    text-align: center;
+    background: #5B6B99;               /* Fondo azul corporativo */
+    color: white;                      /* Texto blanco */
+    font-weight: bold;                 /* Texto en negrita */
+    text-align: center;                /* Alineación centrada */
 }
 
+/* Celdas de contenido de la tabla de productos */
 .products-table td {
-    text-align: center;
+    text-align: center;                /* Alineación centrada por defecto */
 }
 
+/* ANCHOS DE COLUMNAS DE LA TABLA DE PRODUCTOS */
+/* Columna 1: DESCRIPTION - 70% del ancho, alineada a la izquierda */
 .products-table th:nth-child(1),
 .products-table td:nth-child(1) { 
     width: 70%; 
     text-align: left;
 }
+
+/* Columna 2: QTY (Cantidad) - 5% del ancho */
 .products-table th:nth-child(2),
 .products-table td:nth-child(2) { 
     width: 5%; 
 }
+
+/* Columna 3: RATE (Precio) - 10% del ancho */
 .products-table th:nth-child(3),
 .products-table td:nth-child(3) { 
     width: 10%; 
 }
+
+/* Columna 4: AMOUNT (Total) - 15% del ancho, centrada */
 .products-table th:nth-child(4),
 .products-table td:nth-child(4) { 
     width: 15%; 
     text-align: center;
 }
 
-/* Totals section */
+/* ===================================
+   SECCIÓN DE TOTALES Y COMENTARIOS
+   =================================== */
+
+/* Contenedor principal de totales (layout horizontal) */
 .totals-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-top: 20px;
-    gap: 40px;
+    display: flex;                     /* Layout flexible */
+    justify-content: space-between;    /* Distribuir espacio entre elementos */
+    align-items: flex-start;          /* Alinear al inicio verticalmente */
+    margin-top: 20px;                 /* Espacio superior */
+    gap: 40px;                        /* Espacio entre elementos */
 }
 
+/* Sección de comentarios (lado izquierdo) */
 .comments-section {
-    flex: 1;
+    flex: 1;                          /* Ocupar espacio disponible */
 }
 
+/* Encabezado de la sección de comentarios */
 .comments-header {
-    background: #B8B8B8;
-    color: black;
-    padding: 8px 12px;
-    font-weight: bold;
-    font-size: 12px;
-    text-transform: uppercase;
-    margin-bottom: 0;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    background: #B8B8B8;             /* Fondo gris */
+    color: black;                     /* Texto negro */
+    padding: 8px 12px;               /* Espaciado interno */
+    font-weight: bold;               /* Texto en negrita */
+    font-size: 12px;                 /* Tamaño de fuente */
+    text-transform: uppercase;       /* Convertir a mayúsculas */
+    margin-bottom: 0;                /* Sin margen inferior */
+    border-top-left-radius: 6px;    /* Borde redondeado superior izquierdo */
+    border-top-right-radius: 6px;   /* Borde redondeado superior derecho */
 }
 
+/* Contenido de los comentarios con viñetas de punto negro */
 .comments-content {
-    background: #f8f8f8;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-top: none;
-    font-size: 11px;
-    min-height: 80px;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
+    background: #f8f8f8;            /* Fondo gris muy claro */
+    padding: 12px;                   /* Espaciado interno */
+    border: 1px solid #ccc;         /* Borde gris */
+    border-top: none;               /* Sin borde superior */
+    font-size: 11px;                /* Tamaño de fuente pequeño */
+    min-height: 80px;               /* Altura mínima */
+    border-bottom-left-radius: 6px; /* Borde redondeado inferior izquierdo */
+    border-bottom-right-radius: 6px; /* Borde redondeado inferior derecho */
 }
 
-.comments-content ul {
-    list-style: disc;
-    padding-left: 20px;
+/* Párrafos de comentarios con viñetas de punto negro */
+.comments-content p {
+    margin: 0 0 5px 0;              /* Margen inferior reducido entre comentarios */
+    line-height: 1.2;               /* Altura de línea más compacta */
+    text-align: left;               /* Alineación a la izquierda */
+    padding: 0;                     /* Sin padding adicional */
 }
 
-.comments-content li {
-    margin-bottom: 5px;
+/* Último párrafo sin margen inferior */
+.comments-content p:last-child {
+    margin-bottom: 0;               /* Sin espacio después del último comentario */
 }
 
+/* Texto dentro de los comentarios */
+.comments-content p span {
+    display: inline;                /* Mantener en línea con la viñeta */
+    word-wrap: break-word;          /* Permitir partir palabras largas */
+}
+
+/* Tabla de totales (lado derecho) */
 .totals-table {
-    flex-shrink: 0;
-    border-collapse: separate;
-    border-spacing: 0;
+    flex-shrink: 0;                 /* No reducir tamaño */
+    border-collapse: separate;      /* Bordes separados */
+    border-spacing: 2px 2px;        /* Espacio entre celdas */
 }
 
+/* Celdas de encabezado y contenido de la tabla de totales */
 .totals-table th, .totals-table td {
-    border: 1px solid #000;
-    padding: 0.7em 1.2em; /* Aumenta el espacio interno */
-    font-size: 90%;
-    border-radius: 0.25em;
-    text-align: right;
-    background: #fff;
+    border: 1px solid #000;         /* Borde negro */
+    padding: 0.7em 1.2em;           /* Espaciado interno generoso */
+    font-size: 90%;                 /* Tamaño de fuente reducido */
+    border-radius: 0.25em;          /* Bordes redondeados */
+    text-align: right;              /* Alineación a la derecha */
+    background: #fff;               /* Fondo blanco */
 }
 
-.totals-table {
-    border-collapse: separate;
-    border-spacing: 2px 2px; /* Separa las celdas horizontal y verticalmente */
-}
-
+/* Encabezados de la tabla de totales */
 .totals-table th {
-    background: #EEE;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: right;
+    background: #EEE;               /* Fondo gris claro */
+    font-weight: bold;              /* Texto en negrita */
+    text-transform: uppercase;      /* Convertir a mayúsculas */
+    text-align: right;              /* Alineación a la derecha */
 }
 
+/* Primera celda de cada fila en tabla de totales */
 .totals-table td:first-child, .totals-table th:first-child {
-    text-align: left;
+    text-align: left;               /* Alineación a la izquierda para etiquetas */
 }
 
+/* Última fila de la tabla de totales (total final) */
 .totals-table tr:last-child td {
-    font-weight: bold;
-    font-size: 12px;
+    font-weight: bold;              /* Texto en negrita */
+    font-size: 12px;                /* Tamaño de fuente ligeramente mayor */
 }
 
-/* Footer */
+/* ===================================
+   PIE DE PÁGINA
+   =================================== */
+
+/* Sección del pie de página */
 .footer {
-    text-align: center;
-    margin-top: 60px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-    font-size: 11px;
-    color: #666;
-    
-
+    text-align: center;             /* Alineación centrada */
+    margin-top: 60px;               /* Espacio superior generoso */
+    padding-top: 20px;              /* Espaciado superior interno */
+    border-top: 1px solid #eee;    /* Línea separadora superior */
+    font-size: 11px;                /* Tamaño de fuente pequeño */
+    color: #666;                    /* Color gris */
 }
 
-/* Content editable */
+/* ===================================
+   ELEMENTOS EDITABLES
+   =================================== */
+
+/* Elementos con contenido editable */
 [contenteditable] {
-    outline: none;
-    cursor: text;
+    outline: none;                  /* Sin contorno al enfocar */
+    cursor: text;                   /* Cursor de texto */
 }
+
+/* Estados hover y focus para elementos editables */
 [contenteditable]:hover,
 [contenteditable]:focus {
-    background: #fff3cd;
-    border-radius: 2px;
+    background: #fff3cd;            /* Fondo amarillo claro */
+    border-radius: 2px;             /* Bordes ligeramente redondeados */
 }
 
-/* Print styles */
+/* ===================================
+   ESTILOS PARA IMPRESIÓN (con footer fijo)
+   =================================== */
+
+/* Configuración de impresión */
 @media print {
+    /* Preservar colores al imprimir */
     * {
         -webkit-print-color-adjust: exact;
     }
+    
+    /* Eliminar fondo y padding del HTML */
     html {
         background: none;
         padding: 0;
     }
+    
+    /* Configuración del body para impresión */
     body {
         box-shadow: none;
         margin: 0;
-        padding: 0;
+        padding: 0.8in 0.8in 1.2in 0.8in; /* Márgenes ajustados para footer fijo */
+        padding-bottom: 120px;            /* Espacio reservado para footer */
+        position: relative;
     }
+    
+    /* Footer fijo en impresión */
+    .footer {
+        position: fixed;                  /* Posición fija al imprimir */
+        bottom: 0.5in;                    /* Distancia del borde inferior */
+        left: 0.8in;                      /* Margen izquierdo */
+        right: 0.8in;                     /* Margen derecho */
+        width: calc(100% - 1.6in);       /* Ancho calculado */
+        page-break-inside: avoid;         /* Evitar partir el footer */
+        background: white;
+        z-index: 1000;
+    }
+    
+    /* Ocultar elementos span vacíos */
     span:empty {
         display: none;
     }
-}
-
-/* Carta */
-@page {
-    size: letter;
-    margin: 0.8in; /* Ajusta este valor para cambiar el margen de impresión */
-}
-
-/* Utilidades */
-
-/* Evita salto de página innecesario y fuerza todo a una sola hoja */
-@media print {
+    
+    /* Configuración adicional para impresión */
     html, body {
         height: auto !important;
-        max-height: 100vh !important;
         overflow: visible !important;
     }
-    body {
-        page-break-after: avoid;
-        page-break-before: avoid;
+    
+    /* Evitar saltos de página en secciones principales */
+    .header, .client-section {
         page-break-inside: avoid;
-        max-height: 10.5in; /* Ajusta según tu contenido */
+        page-break-after: avoid;
     }
-    .header, .client-section, .products-table, .totals-section, .footer {
-        page-break-inside: avoid;
+    
+    /* Configuración especial para la tabla de productos */
+    .products-table {
+        page-break-inside: auto;          /* Permitir salto en productos si es muy larga */
         page-break-after: avoid;
-        page-break-before: avoid;
+    }
+    
+    /* Mantener totales juntos pero permitir que footer esté fijo */
+    .totals-section {
+        page-break-inside: avoid;
+        margin-bottom: 100px;             /* Espacio para footer fijo */
+    }
+    
+    /* Forzar salto de página antes del footer si es necesario */
+    .footer {
+        page-break-before: auto;
     }
 }
+
+/* ===================================
+   CONFIGURACIÓN DE PÁGINA PARA IMPRESIÓN
+   =================================== */
+
+/* Configuración de página carta con márgenes */
+@page {
+    size: letter;                   /* Tamaño carta americana */
+    margin: 0.8in;                  /* Margen de impresión */
+}
+
+/* ===================================
+   CLASES UTILITARIAS
+   =================================== */
+
+/* Línea personalizada */
 .custom-line {
-    border: none;
-    border-bottom: 1px solid #000;
-    margin: 5px 0;
+    border: none;                   /* Sin borde por defecto */
+    border-bottom: 1px solid #000;  /* Línea inferior negra */
+    margin: 5px 0;                  /* Margen vertical */
 }
 
+/* Texto pequeño */
 .small-text {
-    font-size: 60%;
+    font-size: 60%;                 /* 60% del tamaño normal */
 }
 
-/* Evita expansión horizontal, permite expansión vertical en celdas de tabla */
+/* Configuración avanzada de ruptura de texto para todas las celdas */
 .products-table th, .products-table td,
 .invoice-meta th, .invoice-meta td,
 .totals-table th, .totals-table td,
 .comments-content {
-    word-break: break-word;
-    white-space: pre-line;
-    overflow-wrap: break-word;
-    hyphens: auto;
+    word-break: break-word;         /* Partir palabras largas */
+    white-space: pre-line;          /* Preservar saltos de línea */
+    overflow-wrap: break-word;      /* Envolver palabras largas */
+    hyphens: auto;                  /* Guionado automático */
 }

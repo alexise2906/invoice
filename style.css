@@ -358,26 +358,25 @@ body {
         padding: 0;
     }
     
-    /* Configuración del body para impresión */
+    /* Configuración del body para impresión comercial */
     body {
         box-shadow: none;
         margin: 0;
-        padding: 0.5in 0.5in 0.8in 0.5in; /* Márgenes reducidos para impresión */
-        padding-bottom: 80px;            /* Espacio reservado para footer */
+        padding: 0.75in 0.75in 1in 0.75in; /* COMERCIAL: Márgenes estándar 0.75" */
         position: relative;
     }
     
-    /* Footer fijo en impresión */
+    /* Footer fijo en impresión comercial */
     .footer {
         position: fixed;                  /* Posición fija al imprimir */
-        bottom: 0.3in;                    /* Distancia del borde inferior */
-        left: 0.5in;                      /* Margen izquierdo */
-        right: 0.5in;                     /* Margen derecho */
-        width: calc(100% - 1in);          /* Ancho calculado */
+        bottom: 0.5in;                    /* COMERCIAL: 0.5" del borde inferior */
+        left: 0.75in;                     /* COMERCIAL: 0.75" margen izquierdo */
+        right: 0.75in;                    /* COMERCIAL: 0.75" margen derecho */
+        width: calc(100% - 1.5in);        /* COMERCIAL: Ancho calculado (7" útiles) */
         page-break-inside: avoid;         /* Evitar partir el footer */
         background: white;
         z-index: 1000;
-        font-size: 9px;                   /* Fuente más pequeña para impresión */
+        font-size: 9px;                   /* Fuente pequeña para impresión */
     }
     
     /* Ocultar elementos span vacíos */
@@ -422,7 +421,7 @@ body {
 /* Configuración de página carta con márgenes */
 @page {
     size: letter;                   /* Tamaño carta americana */
-    margin: 0.8in;                  /* Margen de impresión */
+    margin: 0.5in;                  /* Margen de impresión */
 }
 
 /* ===================================

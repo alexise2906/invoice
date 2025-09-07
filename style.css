@@ -316,12 +316,17 @@ body {
 
 /* Sección del pie de página */
 .footer {
-    text-align: center;             /* Alineación centrada */
-    margin-top: 60px;               /* Espacio superior generoso */
-    padding-top: 20px;              /* Espaciado superior interno */
-    border-top: 1px solid #eee;    /* Línea separadora superior */
-    font-size: 11px;                /* Tamaño de fuente pequeño */
-    color: #666;                    /* Color gris */
+    text-align: center;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    font-size: 11px;
+    color: #666;
+
+    position: fixed;   /* 👈 Fijo en la ventana/página */
+    bottom: 0;         /* Pegado al borde inferior */
+    left: 0;
+    right: 0;
+    background: white; /* Para que no se mezcle con el fondo */
 }
 
 /* ===================================
@@ -369,15 +374,16 @@ body {
     
     /* Footer fijo en impresión comercial */
     .footer {
-        position: fixed;                  /* Posición fija al imprimir */
-        bottom: 0.5in;                    /* COMERCIAL: 0.5" del borde inferior */
-        left: 0.75in;                     /* COMERCIAL: 0.75" margen izquierdo */
-        right: 0.75in;                    /* COMERCIAL: 0.75" margen derecho */
-        width: calc(100% - 1.5in);        /* COMERCIAL: Ancho calculado (7" útiles) */
-        page-break-inside: avoid;         /* Evitar partir el footer */
-        background: white;
-        z-index: 1000;
-        font-size: 9px;                   /* Fuente pequeña para impresión */
+  position: absolute;  /* 👈 Ahora es relativo al body */
+  bottom: 0.4in;       /* Se ajusta al margen inferior de la hoja */
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  font-size: 11px;
+  color: #666;
+  background: white;   /* Para que no se mezcle con el fondo */
     }
     
     /* Ocultar elementos span vacíos */

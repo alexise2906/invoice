@@ -299,10 +299,30 @@ body {
 /* Carta */
 @page {
     size: letter;
-    margin: 0.8in;
+    margin: 0.8in; /* Ajusta este valor para cambiar el margen de impresión */
 }
 
 /* Utilidades */
+
+/* Evita salto de página innecesario y fuerza todo a una sola hoja */
+@media print {
+    html, body {
+        height: auto !important;
+        max-height: 100vh !important;
+        overflow: visible !important;
+    }
+    body {
+        page-break-after: avoid;
+        page-break-before: avoid;
+        page-break-inside: avoid;
+        max-height: 10.5in; /* Ajusta según tu contenido */
+    }
+    .header, .client-section, .products-table, .totals-section, .footer {
+        page-break-inside: avoid;
+        page-break-after: avoid;
+        page-break-before: avoid;
+    }
+}
 .custom-line {
     border: none;
     border-bottom: 1px solid #000;
